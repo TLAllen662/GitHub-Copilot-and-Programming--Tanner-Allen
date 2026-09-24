@@ -9,8 +9,8 @@ than asking for the whole app at once, I broke the problem into stages:
 1. First I just stated the goal and tech stack, without asking for any code yet, so
    Copilot understood the scope before touching files.
 2. I let Copilot propose concrete decisions (content type, storage, frontend approach)
-   instead of specifying everything myself, then confirmed with "keep it simple and
-   decide for me."
+   instead of specifying everything myself,I used what Copilot suggested, reviewed it, then confirmed with "keep it simple and
+   decide for me" along with a couple other structure ideas.
 3. I asked for the basic project structure (models, routes, templates, static assets)
    as one step.
 4. I then asked Copilot to focus on just one or two files at a time (`models.py` and
