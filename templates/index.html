@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}StreamBox - Home{% endblock %}
+{% block content %}
+    {% if query %}
+        <h2>Results for "{{ query }}"</h2>
+    {% endif %}
+    <div class="video-grid">
+        {% for video in videos %}
+        <a class="video-card" href="{{ url_for('video_detail', video_id=video.id) }}">
+            <img src="{{ url_for('static', filename='thumbnails/' + video.thumbnail) }}" alt="{{ video.title }}">
+            <div class="video-info">
+                <h3>{{ video.title }}</h3>
+                <span class="category">{{ video.category }}</span>
+            </div>
+        </a>
+        {% else %}
+        <p>No videos found.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

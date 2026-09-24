@@ -1,0 +1,74 @@
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: #f1f1f1;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: #181818;
+    border-bottom: 1px solid #303030;
+}
+.logo {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+.search-form input {
+    padding: 6px 10px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+}
+.search-form button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background: #3ea6ff;
+    color: #000;
+    cursor: pointer;
+}
+.container {
+    padding: 24px;
+}
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+.video-card {
+    color: inherit;
+    text-decoration: none;
+    background: #181818;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.15s ease;
+}
+.video-card:hover {
+    transform: scale(1.02);
+}
+.video-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #303030;
+}
+.video-info {
+    padding: 8px 12px;
+}
+.category {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+.player-wrap {
+    max-width: 900px;
+    margin-bottom: 32px;
+}
+.player-wrap video {
+    background: #000;
+    border-radius: 8px;
+}

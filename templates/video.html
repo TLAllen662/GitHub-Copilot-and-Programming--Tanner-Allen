@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ video.title }} - StreamBox{% endblock %}
+{% block content %}
+    <div class="player-wrap">
+        <video controls width="100%" src="{{ url_for('static', filename='videos/' + video.filename) }}"></video>
+        <h2>{{ video.title }}</h2>
+        <span class="category">{{ video.category }}</span>
+        <p>{{ video.description }}</p>
+    </div>
+
+    <h3>More in {{ video.category }}</h3>
+    <div class="video-grid">
+        {% for v in related %}
+        <a class="video-card" href="{{ url_for('video_detail', video_id=v.id) }}">
+            <img src="{{ url_for('static', filename='thumbnails/' + v.thumbnail) }}" alt="{{ v.title }}">
+            <div class="video-info">
+                <h3>{{ v.title }}</h3>
+            </div>
+        </a>
+        {% else %}
+        <p>No related videos.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
