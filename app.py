@@ -6,16 +6,22 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///platform.db"
 db.init_app(app)
 
 
+GTV_BASE = "https://storage.googleapis.com/gtv-videos-bucket/sample"
+
+
 def seed_data():
     if Video.query.count() > 0:
         return
     sample_videos = [
         Video(title="Big Buck Bunny", description="An open source short film.",
-              category="Animation", filename="big_buck_bunny.mp4", thumbnail="big_buck_bunny.jpg"),
+              category="Animation", video_url=f"{GTV_BASE}/BigBuckBunny.mp4",
+              thumbnail_url=f"{GTV_BASE}/images/BigBuckBunny.jpg"),
         Video(title="Elephants Dream", description="An open source animated film.",
-              category="Animation", filename="elephants_dream.mp4", thumbnail="elephants_dream.jpg"),
-        Video(title="Sample Talk", description="A short sample talk video.",
-              category="Talks", filename="sample_talk.mp4", thumbnail="sample_talk.jpg"),
+              category="Animation", video_url=f"{GTV_BASE}/ElephantsDream.mp4",
+              thumbnail_url=f"{GTV_BASE}/images/ElephantsDream.jpg"),
+        Video(title="For Bigger Blazes", description="A short sample promo clip.",
+              category="Talks", video_url=f"{GTV_BASE}/ForBiggerBlazes.mp4",
+              thumbnail_url=f"{GTV_BASE}/images/ForBiggerBlazes.jpg"),
     ]
     db.session.bulk_save_objects(sample_videos)
     db.session.commit()

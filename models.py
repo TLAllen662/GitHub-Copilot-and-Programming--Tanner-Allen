@@ -8,5 +8,6 @@ class Video(db.Model):
     title = db.Column(db.String(120), nullable=False)
     description = db.Column(db.Text, default="")
     category = db.Column(db.String(50), default="General")
-    filename = db.Column(db.String(200), nullable=False)  # file in static/videos/
-    thumbnail = db.Column(db.String(200), default="")  # file in static/thumbnails/
+    # hosted URLs for now so the app plays without local media files
+    video_url = db.Column(db.String(300), nullable=False)
+    thumbnail_url = db.Column(db.String(300), default="")
