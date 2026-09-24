@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}StreamBox - Home{% endblock %}
 {% block content %}
+    <div class="category-nav">
+        <a href="{{ url_for('index') }}" class="{{ 'active' if not active_category }}">All</a>
+        {% for c in categories %}
+        <a href="{{ url_for('index', category=c) }}" class="{{ 'active' if c == active_category }}">{{ c }}</a>
+        {% endfor %}
+    </div>
     {% if query %}
         <h2>Results for "{{ query }}"</h2>
     {% endif %}

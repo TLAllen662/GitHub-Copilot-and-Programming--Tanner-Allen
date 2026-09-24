@@ -30,11 +30,16 @@ def seed_data():
 @app.route("/")
 def index():
     query = request.args.get("q", "").strip()
+    category = request.args.get("category", "").strip()
+    videos_query = Video.query
     if query:
-        videos = Video.query.filter(Video.title.ilike(f"%{query}%")).all()
-    else:
-        videos = Video.query.all()
-    return render_template("index.html", videos=videos, query=query)
+        videos_query = videos_query.filter(Video.title.ilike(f"%{query}%"))
+    if category:
+        videos_query = videos_query.filter(Video.category == category)
+    videos = videos_query.all()
+    categories = [c[0] for c in db.session.query(Video.category).distinct()]
+    return render_template("index.html", videos=videos, query=query,
+                            categories=categories, active_category=category)
 
 
 @app.route("/video/<int:video_id>")

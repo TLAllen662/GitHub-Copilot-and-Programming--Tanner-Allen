@@ -35,6 +35,25 @@ body {
 .container {
     padding: 24px;
 }
+.category-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.category-nav a {
+    color: #f1f1f1;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 16px;
+    background: #272727;
+    font-size: 0.9rem;
+}
+.category-nav a.active {
+    background: #f1f1f1;
+    color: #0f0f0f;
+    font-weight: bold;
+}
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
